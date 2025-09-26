@@ -1,15 +1,18 @@
 import web
 
 urls = (
-    '/(.*)', 'hello'
+    '/', 'mvc.controllers.index.Index',
+    '/lista_usuarios', 'mvc.controllers.usuarios.lista_usuarios.ListaUsuarios',
+    '/detalle_usuario', 'mvc.controllers.usuarios.detalle_usuario.DetalleUsuario',
+    '/insertar_usuario', 'mvc.controllers.usuarios.insertar_usuario.InsertarUsuario',
+    '/detalle_producto', 'mvc.controllers.productos.detalle_producto.DetalleProducto',
+    '/insertar_producto', 'mvc.controllers.productos.insertar_producto.InsertarProducto',
+    '/lista_productos', 'mvc.controllers.productos.lista_productos.ListaProductos'
 )
+
 app = web.application(urls, globals())
 
-class hello:
-    def GET(self, name):
-        if not name:
-            name = 'World'
-        return 'Hello, ' + name + '!'
+
 
 if __name__ == "__main__":
     app.run()
